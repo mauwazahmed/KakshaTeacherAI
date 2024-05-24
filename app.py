@@ -7,7 +7,7 @@ import os
 
 
 with st.sidebar:
-    apiKey = st.text_input("Add OpenAI API Key")
+    apiKey = st.text_input(label="Add OpenAI API Key",type="password")
     add_radio = st.radio(
         "Choose your Agent",
         ("Lesson Plan Generator", "AI Tutor","Mock Teaching","Explain and Discuss")
