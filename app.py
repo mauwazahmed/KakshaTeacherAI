@@ -3,16 +3,11 @@ import streamlit as st
 import os
 
 # Set your OpenAI API key
-api = os.getenv("OPENAI_API_KEY")
 # print(api)
 
 
-client = OpenAI(api_key=api)
-
-
-
-
 with st.sidebar:
+    apiKey = st.text_input("Add OpenAI API Key")
     add_radio = st.radio(
         "Choose your Agent",
         ("Lesson Plan Generator", "AI Tutor","Mock Teaching","Explain and Discuss")
@@ -71,6 +66,10 @@ elif add_radio == "Mock Teaching":
     """
 else:
     st.title("Choose an Agent")
+
+
+client = OpenAI(api_key=apiKey)
+
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-3.5-turbo"
 
